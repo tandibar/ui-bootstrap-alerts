@@ -1,26 +1,3 @@
-// With this service you can create alerts in a specified context which will
-// be immediately displayed for the user. Use for example
-//
-//     AlertService.context('foo').error("Something went really wrong");
-//
-// to display an error message. The alert can be dismissed by the user
-// clicking on the 'x'
-//
-// To display the messages of this service use the alerts directive
-//
-//     <alerts context="foo"></alerts>
-//
-// in your template where you want to show the alerts. If you do not specify
-// the context it will ge 'general'.
-//
-// Types of alerts
-//
-//    error   --> red
-//    warning --> yellow
-//    success --> green
-//    info    --> blue
-//
-
 angular.module('ui.bootstrap.alerts',[])
 .service('AlertService', [function() {
   
