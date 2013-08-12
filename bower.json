@@ -1,0 +1,15 @@
+{
+  "name": "ui-bootstrap-alerts",
+  "version": "0.0.1",
+  "main": "ui-bootstrap-alerts.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": ">=1.0.7"
+  }
+}
