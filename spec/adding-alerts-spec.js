@@ -75,4 +75,13 @@ describe('adding alerts', function() {
     });
   });
 
+  describe('adding more than one', function() {
+    it('should add two different errors', function(){
+      AlertService.context('foo').error('Some Error');
+      AlertService.context('foo').error('Another Error');
+
+      expect(AlertService.alerts.foo.length).toBe(2)
+    })
+  })
+
 });

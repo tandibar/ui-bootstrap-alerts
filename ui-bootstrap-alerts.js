@@ -28,7 +28,7 @@ angular.module('ui.bootstrap.alerts',[])
 
   this.context = function(context){
     var alertService = this;
-    this.alerts[context] = [];
+    this.alerts[context] = this.alerts[context] || [];
     return {
       getAllAlerts: function(){
         alertService.alerts[context] = alertService.alerts[context] || [];
