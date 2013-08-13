@@ -1,0 +1,34 @@
+{
+  "name": "ui-bootstrap-alerts",
+  "version": "0.0.0",
+  "description": "Alerts for AngularJS in bootstrap style",
+  "main": "ui-bootstrap-alerts.min.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "testem": "~0.3.23",
+    "bower": "~1.1.2"
+  },
+  "scripts": {
+    "test": "testem"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tandibar/ui-bootstrap-alerts.git"
+  },
+  "keywords": [
+    "angular",
+    "alerts",
+    "bootstrap",
+    "angularjs",
+    "notifications"
+  ],
+  "author": "Andi Bade",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "3c6f177afa1a2e0cb492caf8c0744fa9e6752234",
+  "bugs": {
+    "url": "https://github.com/tandibar/ui-bootstrap-alerts/issues"
+  }
+}
