@@ -3,17 +3,16 @@ angular.module('ui.bootstrap.alerts',[])
   
   this.id = 1;
   this.alerts = {};
+  this.titleMap = {
+    'error': 'Error',
+    'warning': 'Warning',
+    'success': 'Success',
+    'info': 'Info'
+  };
 
   this.alert = function(alert) {
     alert.id = this.id++;
-    alert.title = function() {
-      switch(alert.type) {
-        case 'error': return "Fehler";
-        case 'warning': return "Warnung";
-        case 'success': return "";
-        case 'info': return "Info";
-      }
-    };
+    alert.title = this.titleMap[alert.type];
     this.alerts[alert.context] = this.alerts[alert.context] || [];
 
     for (var i = 0; i < this.alerts[alert.context].length; i++) {
@@ -107,6 +106,6 @@ angular.module('ui.bootstrap.alerts',[])
     restrict: "E",
     replace: true,
     scope: true,
-    template: '<div ng-controller="AlertCtrl" ng-show="anyAlerts"><div class="alert" ng-class="alertClassFor(alert)" ng-repeat="alert in alerts"><button class="close" data-dismiss="alert" ng-click="remove(alert)">×</button><strong>{{alert.title()}}</strong> {{alert.message}}</div></div>'
+    template: '<div ng-controller="AlertCtrl" ng-show="anyAlerts"><div class="alert" ng-class="alertClassFor(alert)" ng-repeat="alert in alerts"><button class="close" data-dismiss="alert" ng-click="remove(alert)">×</button><strong>{{alert.title}}</strong> {{alert.message}}</div></div>'
   };
 });
