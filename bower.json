@@ -1,7 +1,7 @@
 {
   "name": "ui-bootstrap-alerts",
   "version": "0.0.1",
-  "main": "ui-bootstrap-alerts.js",
+  "main": "ui-bootstrap-alerts.min.js",
   "ignore": [
     "**/.*",
     "node_modules",

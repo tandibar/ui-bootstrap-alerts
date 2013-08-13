@@ -15,14 +15,21 @@ angular.module('ui.bootstrap.alerts',[])
       }
     };
     this.alerts[alert.context] = this.alerts[alert.context] || [];
-    var sameMessages = jQuery.grep(this.alerts[alert.context], function(existingAlert){
-      return existingAlert.message == alert.message;
-    });
-    if(sameMessages.length === 0) this.alerts[alert.context].push(alert);
+
+    for (var i = 0; i < this.alerts[alert.context].length; i++) {
+      if(this.alerts[alert.context][i].message === alert.message) {
+        // same message already exists
+        return this.alerts[alert.context][i];
+      }
+    }
+
+    this.alerts[alert.context].push(alert);
+    return alert;
   };
 
   this.context = function(context){
     var alertService = this;
+    this.alerts[context] = [];
     return {
       getAllAlerts: function(){
         alertService.alerts[context] = alertService.alerts[context] || [];
@@ -30,25 +37,29 @@ angular.module('ui.bootstrap.alerts',[])
       },
 
       error: function(message){
-        alertService.alert({context: context, type: 'error', message: message});
+        return alertService.alert({context: context, type: 'error', message: message});
       },
 
       warning: function(message){
-        alertService.alert({context: context, type: 'warning', message: message});
+        return alertService.alert({context: context, type: 'warning', message: message});
       },
 
       success: function(message){
-        alertService.alert({context: context, type: 'success', message: message});
+        return alertService.alert({context: context, type: 'success', message: message});
       },
 
       info: function(message){
-        alertService.alert({context: context, type: 'info', message: message});
+        return alertService.alert({context: context, type: 'info', message: message});
       },
 
       remove: function(alert){
-        alertService.alerts[context] = jQuery.grep(alertService.alerts[context], function(value) {
-          return value.id != alert.id;
-        });
+        for (var i = 0; i < alertService.alerts[context].length; i++) {
+          if(alertService.alerts[context][i].id === alert.id) {
+            alertService.alerts[context].splice(i, 1);
+          }
+        }
+        // alert could not be found
+        return false;
       },
 
       clear: function(){
