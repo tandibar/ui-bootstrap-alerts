@@ -1,4 +1,4 @@
-angular.module('ui.bootstrap.alerts',[])
+angular.module('ui.bootstrap.alerts', [])
 .service('AlertService', [function() {
   
   this.id = 1;
@@ -68,44 +68,4 @@ angular.module('ui.bootstrap.alerts',[])
   };
 
   angular.extend(this, this.context('general'));
-}])
-.controller('AlertCtrl', ['$scope', '$attrs', 'AlertService', function($scope, $attrs, AlertService){
-
-  $scope.alertContext = $attrs.context || 'general';
-
-  $scope.alertClassFor = function(alert){
-    var classes = [];
-    switch (alert.type) {
-      case 'warning':
-        // no special class
-        break;
-      case 'success':
-        classes.push('alert-success');
-        break;
-      case 'info':
-        classes.push('alert-info');
-        break;
-      case 'error':
-        classes.push('alert-error');
-        break;
-    }
-    return classes.join(" ");
-  };
-
-  $scope.remove = function(alert){
-    AlertService.context($scope.alertContext).remove(alert);
-  };
-
-  $scope.$watch( function () { return AlertService.context($scope.alertContext).getAllAlerts(); }, function (alerts) {
-    $scope.alerts = alerts;
-    $scope.anyAlerts = $scope.alerts.length > 0;
-  }, true);
-}])
-.directive("alerts", function() {
-  return {
-    restrict: "E",
-    replace: true,
-    scope: true,
-    template: '<div ng-controller="AlertCtrl" ng-show="anyAlerts"><div class="alert" ng-class="alertClassFor(alert)" ng-repeat="alert in alerts"><button class="close" data-dismiss="alert" ng-click="remove(alert)">×</button><strong>{{alert.title}}</strong> {{alert.message}}</div></div>'
-  };
-});
+}]);

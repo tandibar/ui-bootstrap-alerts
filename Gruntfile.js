@@ -5,7 +5,11 @@ module.exports = function(grunt) {
     uglify: {
       all: {
         files: {
-          'ui-bootstrap-alerts.min.js': ['ui-bootstrap-alerts.js']
+          'ui-bootstrap-alerts.min.js': [
+            'src/AlertService.js',
+            'src/AlertCtrl.js',
+            'src/alerts-directive.js'
+          ]
         }
       }
     }
