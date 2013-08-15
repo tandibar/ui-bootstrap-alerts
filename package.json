@@ -8,7 +8,8 @@
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.2",
     "testem": "~0.3.23",
-    "bower": "~1.1.2"
+    "bower": "~1.1.2",
+    "grunt-release": "~0.5.1"
   },
   "scripts": {
     "test": "testem"

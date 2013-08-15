@@ -14,9 +14,18 @@ module.exports = function(grunt) {
       }
     }
   });
+  grunt.loadNpmTasks('grunt-release');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
+  grunt.renameTask('release', 'releaseToBower');
+  grunt.registerTask('release', function(major_minor_patch){
+    major_minor_patch = major_minor_patch || 'patch';
+    grunt.task.run([
+      'build',
+      'releaseToBower:' + major_minor_patch
+    ]);
+  });
+  
   grunt.registerTask('build', ['uglify']);
   grunt.registerTask('default', ['build']);
-  
-  grunt.loadNpmTasks('grunt-contrib-uglify');
 };
