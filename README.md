@@ -34,6 +34,7 @@ or by removing it by calling
 ## Types
 
     error   --> red
+    danger  --> red
     warning --> yellow
     success --> green
     info    --> blue

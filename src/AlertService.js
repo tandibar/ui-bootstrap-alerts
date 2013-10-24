@@ -5,6 +5,7 @@ angular.module('ui.bootstrap.alerts', [])
   this.alerts = {};
   this.titleMap = {
     'error': 'Error',
+    'danger': 'Danger',
     'warning': 'Warning',
     'success': 'Success',
     'info': 'Info'
@@ -37,6 +38,10 @@ angular.module('ui.bootstrap.alerts', [])
 
       error: function(message){
         return alertService.alert({context: context, type: 'error', message: message});
+      },
+      
+      danger: function(message){
+        return alertService.alert({context: context, type: 'danger', message: message});
       },
 
       warning: function(message){

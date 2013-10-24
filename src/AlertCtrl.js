@@ -16,7 +16,10 @@ angular.module('ui.bootstrap.alerts')
         classes.push('alert-info');
         break;
       case 'error':
-        classes.push('alert-error');
+        classes.push('alert-danger');
+        break;
+      case 'danger':
+        classes.push('alert-danger');
         break;
     }
     return classes.join(" ");
