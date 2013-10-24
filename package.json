@@ -1,6 +1,6 @@
 {
   "name": "ui-bootstrap-alerts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Alerts for AngularJS in bootstrap style",
   "main": "ui-bootstrap-alerts.min.js",
   "dependencies": {},
