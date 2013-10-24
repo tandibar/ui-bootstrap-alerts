@@ -12,6 +12,11 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+    release: {
+      options: {
+        file: 'bower.json'
+      }
     }
   });
   grunt.loadNpmTasks('grunt-release');
