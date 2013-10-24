@@ -25,6 +25,9 @@ module.exports = function(grunt) {
   grunt.renameTask('release', 'releaseToBower');
   grunt.registerTask('release', function(major_minor_patch){
     major_minor_patch = major_minor_patch || 'patch';
+    grunt.log.writeln("******************************************************************");
+    grunt.log.writeln("* IMPORTANT: you have to commit the .min file before releasing *");
+    grunt.log.writeln("******************************************************************");
     grunt.task.run([
       'build',
       'releaseToBower:' + major_minor_patch
