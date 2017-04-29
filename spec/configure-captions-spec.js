@@ -1,20 +1,20 @@
-describe('configure captions', function() {
-  beforeEach(function() {
+describe('configure captions', () => {
+  beforeEach(() => {
     module('ui.bootstrap.alerts');
 
-    inject(function($injector) {
+    inject($injector => {
       AlertService = $injector.get('AlertService');
     });
   });
 
-  describe('defaults', function() {
-    it('should be "Error" for errors', function(){
+  describe('defaults', () => {
+    it('should be "Error" for errors', () => {
       expect(AlertService.error('Some Error').title).toBe("Error");
     });
   });
 
-  describe('own configuration', function() {
-    beforeEach(function() {
+  describe('own configuration', () => {
+    beforeEach(() => {
       AlertService.titleMap = {
         error: "Fehler",
         warning: "Warnung",
@@ -23,7 +23,7 @@ describe('configure captions', function() {
       };
     });
 
-    it('should be "Error" for errors', function(){
+    it('should be "Error" for errors', () => {
       expect(AlertService.error('Some Error').title).toBe("Fehler");
     });
   });

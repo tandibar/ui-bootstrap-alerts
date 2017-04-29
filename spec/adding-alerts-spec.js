@@ -1,14 +1,14 @@
-describe('adding alerts', function() {
-  beforeEach(function() {
+describe('adding alerts', () => {
+  beforeEach(() => {
     module('ui.bootstrap.alerts');
 
-    inject(function($injector) {
+    inject($injector => {
       AlertService = $injector.get('AlertService');
     });
   });
 
-  describe('general', function() {
-    it('should add an error to the general alerts object', function(){
+  describe('general', () => {
+    it('should add an error to the general alerts object', () => {
       AlertService.error('Some Error');
 
       generalAlerts = AlertService.alerts.general
@@ -16,7 +16,7 @@ describe('adding alerts', function() {
       expect(generalAlerts[0].type).toBe('error');
     });
 
-    it('should add an info to the general alerts object', function(){
+    it('should add an info to the general alerts object', () => {
       AlertService.info('Some info');
 
       generalAlerts = AlertService.alerts.general
@@ -24,7 +24,7 @@ describe('adding alerts', function() {
       expect(generalAlerts[0].type).toBe('info');
     });
 
-    it('should add a warning to the general alerts object', function(){
+    it('should add a warning to the general alerts object', () => {
       AlertService.warning('Some warning');
 
       generalAlerts = AlertService.alerts.general
@@ -32,7 +32,7 @@ describe('adding alerts', function() {
       expect(generalAlerts[0].type).toBe('warning');
     });
 
-    it('should add a success to the general alerts object', function(){
+    it('should add a success to the general alerts object', () => {
       AlertService.success('Some success');
 
       generalAlerts = AlertService.alerts.general
@@ -41,8 +41,8 @@ describe('adding alerts', function() {
     });
   });
 
-  describe('special context \'foo\'', function() {
-    it('should add an error to a context', function(){
+  describe('special context \'foo\'', () => {
+    it('should add an error to a context', () => {
       AlertService.context('foo').error('Some Error');
 
       fooAlerts = AlertService.alerts.foo
@@ -50,7 +50,7 @@ describe('adding alerts', function() {
       expect(fooAlerts[0].type).toBe('error');
     });
 
-    it('should add an info to a context', function(){
+    it('should add an info to a context', () => {
       AlertService.context('foo').info('Some info');
 
       fooAlerts = AlertService.alerts.foo
@@ -58,7 +58,7 @@ describe('adding alerts', function() {
       expect(fooAlerts[0].type).toBe('info');
     });
 
-    it('should add a warning to a context', function(){
+    it('should add a warning to a context', () => {
       AlertService.context('foo').warning('Some warning');
 
       fooAlerts = AlertService.alerts.foo
@@ -66,7 +66,7 @@ describe('adding alerts', function() {
       expect(fooAlerts[0].type).toBe('warning');
     });
 
-    it('should add a success to a context', function(){
+    it('should add a success to a context', () => {
       AlertService.context('foo').success('Some success');
 
       fooAlerts = AlertService.alerts.foo
@@ -75,8 +75,8 @@ describe('adding alerts', function() {
     });
   });
 
-  describe('adding more than one', function() {
-    it('should add two different errors', function(){
+  describe('adding more than one', () => {
+    it('should add two different errors', () => {
       AlertService.context('foo').error('Some Error');
       AlertService.context('foo').error('Another Error');
 
