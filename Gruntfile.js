@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = grunt => {
   'use strict';
 
   grunt.initConfig({
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.renameTask('release', 'releaseToBower');
-  grunt.registerTask('release', function(major_minor_patch){
+  grunt.registerTask('release', major_minor_patch => {
     major_minor_patch = major_minor_patch || 'patch';
     grunt.log.writeln("******************************************************************");
     grunt.log.writeln("* IMPORTANT: you have to commit the .min file before releasing *");

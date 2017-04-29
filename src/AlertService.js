@@ -31,32 +31,32 @@ angular.module('ui.bootstrap.alerts', [])
     var alertService = this;
     this.alerts[context] = this.alerts[context] || [];
     return {
-      getAllAlerts: function(){
+      getAllAlerts() {
         alertService.alerts[context] = alertService.alerts[context] || [];
         return alertService.alerts[context];
       },
 
-      error: function(message){
-        return alertService.alert({context: context, type: 'error', message: message});
+      error(message) {
+        return alertService.alert({context, type: 'error', message});
       },
       
-      danger: function(message){
-        return alertService.alert({context: context, type: 'danger', message: message});
+      danger(message) {
+        return alertService.alert({context, type: 'danger', message});
       },
 
-      warning: function(message){
-        return alertService.alert({context: context, type: 'warning', message: message});
+      warning(message) {
+        return alertService.alert({context, type: 'warning', message});
       },
 
-      success: function(message){
-        return alertService.alert({context: context, type: 'success', message: message});
+      success(message) {
+        return alertService.alert({context, type: 'success', message});
       },
 
-      info: function(message){
-        return alertService.alert({context: context, type: 'info', message: message});
+      info(message) {
+        return alertService.alert({context, type: 'info', message});
       },
 
-      remove: function(alert){
+      remove(alert) {
         for (var i = 0; i < alertService.alerts[context].length; i++) {
           if(alertService.alerts[context][i].id === alert.id) {
             alertService.alerts[context].splice(i, 1);
@@ -66,7 +66,7 @@ angular.module('ui.bootstrap.alerts', [])
         return false;
       },
 
-      clear: function(){
+      clear() {
         alertService.alerts[context] = null;
       }
     };

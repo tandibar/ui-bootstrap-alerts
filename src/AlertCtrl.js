@@ -1,9 +1,9 @@
 angular.module('ui.bootstrap.alerts')
-.controller('AlertCtrl', ['$scope', '$attrs', 'AlertService', function($scope, $attrs, AlertService){
+.controller('AlertCtrl', ['$scope', '$attrs', 'AlertService', ($scope, $attrs, AlertService) => {
 
   $scope.alertContext = $attrs.context || 'general';
 
-  $scope.alertClassFor = function(alert){
+  $scope.alertClassFor = alert => {
     var classes = [];
     switch (alert.type) {
       case 'warning':
@@ -25,11 +25,11 @@ angular.module('ui.bootstrap.alerts')
     return classes.join(" ");
   };
 
-  $scope.remove = function(alert){
+  $scope.remove = alert => {
     AlertService.context($scope.alertContext).remove(alert);
   };
 
-  $scope.$watch( function () { return AlertService.context($scope.alertContext).getAllAlerts(); }, function (alerts) {
+  $scope.$watch( () => AlertService.context($scope.alertContext).getAllAlerts(), alerts => {
     $scope.alerts = alerts;
     $scope.anyAlerts = $scope.alerts.length > 0;
   }, true);
